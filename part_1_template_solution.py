@@ -1,12 +1,3 @@
-# Inspired by GPT4
-
-# Information on type hints
-# https://peps.python.org/pep-0585/
-
-# GPT on testing functions, mock functions, testing number of calls, and argument values
-# https://chat.openai.com/share/b3fd7739-b691-48f2-bb5e-0d170be4428c
-
-
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import (
     ShuffleSplit,
@@ -106,9 +97,6 @@ class Section1:
         answer["length_ytest"] = len(ytest)
         answer["max_Xtrain"] = np.max(Xtrain)
         answer["max_Xtest"] = np.max(Xtest)
-        # print('thrhieir',np.max(Xtrain))
-        # print(len(Xtrain))
-        # print(len(Xtest))
         return answer, Xtrain, ytrain, Xtest, ytest
 
     """
@@ -141,7 +129,6 @@ class Section1:
         scores['mean_accuracy']=np.mean(results['test_score'])
         scores['std_accuracy']=np.std(results['test_score'])
         answer["scores"] = scores
-        #print(answer)
         return answer
 
     # ---------------------------------------------------------
@@ -173,7 +160,7 @@ class Section1:
         scores['mean_accuracy']=np.mean(results['test_score'])
         scores['std_accuracy']=np.std(results['test_score'])
         answer["scores"] = scores
-        answer["explain_kfold_vs_shuffle_split"] = "Pros of Shuffle Shift:- We decide to what size the data is splitted into training and test sets, Gives better generalizaion, as it randomly selects samples for training and testing. Downsides of ShuffleSplit:- Variance, the randomness can often lead to a high variance. Also it doesn't implicilty preserve the training and testing samples, this leads to model train on imbalanced dataset. Pros of Using KFold CV:- Uses all the data/ observations for both training and testing. unlike shuffle split doesn't guarantee, Also Model Stability due to use of entire set. Negative sides of K Fold:- It consumes lot of resources to compute, also its not as flexible as Shuffle split(kfold doesn't provide us with the option to determine what ratio needs to be splitted for training and testing)"
+        answer["explain_kfold_vs_shuffle_split"] = "Shuffle-Split involves randomly shuffling the data and creating train-test splits, but it may exhibit higher variance in estimating model performance compared to 𝑘-fold cross-validation. 𝑘-fold cross-validation offers a more dependable performance estimate by averaging results over multiple iterations of training and testing on diverse data subsets. However, it can be computationally expensive, particularly when 𝑘 is large. The choice between Shuffle-Split and 𝑘-fold cross-validation depends on factors such as dataset characteristics, computational resources, and the trade-off between computational cost and the reliability of the performance estimate. For large datasets with limited resources, Shuffle-Split might be a pragmatic choice, while 𝑘-fold cross-validation is preferred when a more robust estimate is crucial, and computational resources allow for the additional cost."
         #print(answer)
         return answer
 
@@ -213,7 +200,7 @@ class Section1:
             scores['std_accuracy']=np.std(results['test_score'])
             answer["scores"] = scores
             """Observation:
-            As we move from 2 splits to 5 splits the mean and std of accuracy increased, but from 5 to 8 folds, there is decrease in both measures, and again from 8 to 16 folds there is sligh increase in mean accuracy, on contrast there's a decrease in std accuracy from 8 to 16.'
+             As the number of splits increased from 2 to 5, both the mean and standard deviation of accuracy showed an upward trend. However, with further increments from 5 to 8 folds, there was a decline in both measures. Subsequently, moving from 8 to 16 folds resulted in a slight increase in mean accuracy, whereas there was a decrease in standard deviation accuracy during the same interval.
             """
             answer_1[k]=answer
  
@@ -317,7 +304,7 @@ class Section1:
             "model_lowest_variance" (float)
             "model_fastest" (float)
         """
-        # print('Bruh')
+        
         # print(answer)
         #answer[]
         return answer
