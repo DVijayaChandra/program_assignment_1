@@ -169,18 +169,6 @@ class Section2:
             clf_F = LogisticRegression(max_iter=300,random_state=self.seed)
             cv_F = ShuffleSplit(n_splits=5,random_state=self.seed)
             scores_trainlr = u.train_simple_classifier_with_cv(Xtrain=X_train, ytrain=y_train, clf=LogisticRegression(max_iter=300,random_state=self.seed), cv=ShuffleSplit(n_splits=5,random_state=self.seed))
-            # scores_testlr = u.train_simple_classifier_with_cv(Xtrain=X_test, ytrain=y_test, clf=LogisticRegression(max_iter=300,random_state=self.seed), cv=ShuffleSplit(n_splits=5,random_state=self.seed))
-            #scores_dt = u.train_simple_classifier_with_cv(Xtrain=X, ytrain=y, clf=DecisionTreeClassifier(random_state=self.seed), cv=ShuffleSplit(n_splits=5,random_state=self.seed)) 
-            # scores_LR_train={}
-            # scores_LR_test={}
-            # scores_LR_train["mean_fit_time"] = np.mean(scores_trainlr['fit_time'])
-            # scores_LR_train["std_fit_time"] = np.std(scores_trainlr['fit_time'])
-            # scores_LR_train["mean_accuracy"] = np.mean(scores_trainlr['test_score'])    
-            # scores_LR_train["std_accuracy"] = np.std(scores_trainlr['test_score'])
-            # scores_LR_test["mean_fit_time"] = np.mean(scores_testlr['fit_time'])
-            # scores_LR_test["std_fit_time"] = np.std(scores_testlr['fit_time'])
-            # scores_LR_test["mean_accuracy"] = np.mean(scores_testlr['test_score'])    
-            # scores_LR_test["std_accuracy"] = np.std(scores_testlr['test_score'])     
             
             clf_F.fit(X_train,y_train)
             y_train_pred = clf_F.predict(X_train)
